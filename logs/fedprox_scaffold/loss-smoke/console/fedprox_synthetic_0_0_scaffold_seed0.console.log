@@ -1,0 +1,265 @@
+[experiment] 05-22 20:57 INFO     cpu
+[experiment] 05-22 20:57 INFO     ####################################################################################################
+[experiment] 05-22 20:57 INFO     Partitioning data
+[experiment] 05-22 20:57 INFO     Data statistics: {0: {1: 71, 3: 439, 8: 5}, 1: {6: 45}, 2: {6: 47}, 3: {3: 44, 5: 1, 7: 1}, 4: {0: 4, 1: 48, 5: 154, 6: 1, 8: 7}, 5: {1: 1466}, 6: {1: 72, 6: 10, 8: 75}, 7: {1: 12, 2: 10, 5: 5, 6: 49, 8: 6}, 8: {4: 54}, 9: {0: 3, 3: 35, 4: 28, 7: 11}, 10: {0: 47}, 11: {2: 9, 4: 8, 5: 11, 6: 20}, 12: {0: 1, 1: 13, 3: 77, 8: 2, 9: 13}, 13: {2: 19, 4: 15, 5: 56, 6: 8, 9: 19}, 14: {5: 1494, 9: 21}, 15: {2: 330, 6: 108, 7: 49}, 16: {5: 43, 6: 143}, 17: {2: 43, 4: 14, 8: 8}, 18: {4: 61, 8: 2, 9: 124}, 19: {1: 218, 2: 117, 8: 158, 9: 245}, 20: {1: 19, 7: 33}, 21: {1: 288, 5: 2, 6: 6, 7: 201}, 22: {1: 3, 2: 32, 5: 56}, 23: {5: 46}, 24: {0: 3, 1: 63}, 25: {4: 127, 6: 5}, 26: {0: 45, 9: 4}, 27: {4: 18, 5: 100, 7: 457, 8: 68}, 28: {7: 61}, 29: {1: 89, 8: 1}}
+[experiment] 05-22 20:57 INFO     Initializing nets
+[experiment] 05-22 20:57 INFO     in comm round:0
+[experiment] 05-22 20:57 INFO     Training network 2. n_training: 47
+[experiment] 05-22 20:57 INFO     Training network 2
+[experiment] 05-22 20:57 INFO     >> Pre-Training Training accuracy: 0.0
+[experiment] 05-22 20:57 INFO     >> Pre-Training Test accuracy: 0.10033444816053512
+[experiment] 05-22 20:57 INFO     Epoch: 0 Loss: 1.802273
+[experiment] 05-22 20:57 INFO     Epoch: 1 Loss: 0.525099
+[experiment] 05-22 20:57 INFO     Epoch: 2 Loss: 0.231388
+[experiment] 05-22 20:57 INFO     Epoch: 3 Loss: 0.142147
+[experiment] 05-22 20:57 INFO     Epoch: 4 Loss: 0.101741
+[experiment] 05-22 20:57 INFO     Epoch: 5 Loss: 0.078681
+[experiment] 05-22 20:57 INFO     Epoch: 6 Loss: 0.064169
+[experiment] 05-22 20:57 INFO     Epoch: 7 Loss: 0.053770
+[experiment] 05-22 20:57 INFO     Epoch: 8 Loss: 0.046626
+[experiment] 05-22 20:57 INFO     Epoch: 9 Loss: 0.041036
+[experiment] 05-22 20:57 INFO     Epoch: 10 Loss: 0.036422
+[experiment] 05-22 20:57 INFO     Epoch: 11 Loss: 0.032986
+[experiment] 05-22 20:57 INFO     Epoch: 12 Loss: 0.029975
+[experiment] 05-22 20:57 INFO     Epoch: 13 Loss: 0.027635
+[experiment] 05-22 20:57 INFO     Epoch: 14 Loss: 0.025471
+[experiment] 05-22 20:57 INFO     Epoch: 15 Loss: 0.023756
+[experiment] 05-22 20:57 INFO     Epoch: 16 Loss: 0.022076
+[experiment] 05-22 20:57 INFO     Epoch: 17 Loss: 0.020833
+[experiment] 05-22 20:57 INFO     Epoch: 18 Loss: 0.019600
+[experiment] 05-22 20:57 INFO     Epoch: 19 Loss: 0.018479
+[experiment] 05-22 20:57 INFO     >> Training accuracy: 1.000000
+[experiment] 05-22 20:57 INFO     >> Test accuracy: 0.127090
+[experiment] 05-22 20:57 INFO      ** Training complete **
+[experiment] 05-22 20:57 INFO     net 2 final test acc 0.127090
+[experiment] 05-22 20:57 INFO     Training network 10. n_training: 47
+[experiment] 05-22 20:57 INFO     Training network 10
+[experiment] 05-22 20:57 INFO     >> Pre-Training Training accuracy: 0.0
+[experiment] 05-22 20:57 INFO     >> Pre-Training Test accuracy: 0.10033444816053512
+[experiment] 05-22 20:57 INFO     Epoch: 0 Loss: 1.649823
+[experiment] 05-22 20:57 INFO     Epoch: 1 Loss: 0.473256
+[experiment] 05-22 20:57 INFO     Epoch: 2 Loss: 0.216450
+[experiment] 05-22 20:57 INFO     Epoch: 3 Loss: 0.134683
+[experiment] 05-22 20:57 INFO     Epoch: 4 Loss: 0.096848
+[experiment] 05-22 20:57 INFO     Epoch: 5 Loss: 0.075855
+[experiment] 05-22 20:57 INFO     Epoch: 6 Loss: 0.061497
+[experiment] 05-22 20:57 INFO     Epoch: 7 Loss: 0.051768
+[experiment] 05-22 20:57 INFO     Epoch: 8 Loss: 0.044838
+[experiment] 05-22 20:57 INFO     Epoch: 9 Loss: 0.039461
+[experiment] 05-22 20:57 INFO     Epoch: 10 Loss: 0.035212
+[experiment] 05-22 20:57 INFO     Epoch: 11 Loss: 0.031799
+[experiment] 05-22 20:57 INFO     Epoch: 12 Loss: 0.029252
+[experiment] 05-22 20:57 INFO     Epoch: 13 Loss: 0.026974
+[experiment] 05-22 20:57 INFO     Epoch: 14 Loss: 0.024881
+[experiment] 05-22 20:57 INFO     Epoch: 15 Loss: 0.023141
+[experiment] 05-22 20:57 INFO     Epoch: 16 Loss: 0.021504
+[experiment] 05-22 20:57 INFO     Epoch: 17 Loss: 0.020221
+[experiment] 05-22 20:57 INFO     Epoch: 18 Loss: 0.019048
+[experiment] 05-22 20:57 INFO     Epoch: 19 Loss: 0.017919
+[experiment] 05-22 20:57 INFO     >> Training accuracy: 1.000000
+[experiment] 05-22 20:57 INFO     >> Test accuracy: 0.103679
+[experiment] 05-22 20:57 INFO      ** Training complete **
+[experiment] 05-22 20:57 INFO     net 10 final test acc 0.103679
+[experiment] 05-22 20:57 INFO     Training network 11. n_training: 48
+[experiment] 05-22 20:57 INFO     Training network 11
+[experiment] 05-22 20:57 INFO     >> Pre-Training Training accuracy: 0.4166666666666667
+[experiment] 05-22 20:57 INFO     >> Pre-Training Test accuracy: 0.10033444816053512
+[experiment] 05-22 20:57 INFO     Epoch: 0 Loss: 1.882431
+[experiment] 05-22 20:57 INFO     Epoch: 1 Loss: 1.760028
+[experiment] 05-22 20:57 INFO     Epoch: 2 Loss: 1.660524
+[experiment] 05-22 20:57 INFO     Epoch: 3 Loss: 1.615570
+[experiment] 05-22 20:57 INFO     Epoch: 4 Loss: 1.543910
+[experiment] 05-22 20:57 INFO     Epoch: 5 Loss: 1.509556
+[experiment] 05-22 20:57 INFO     Epoch: 6 Loss: 1.465012
+[experiment] 05-22 20:57 INFO     Epoch: 7 Loss: 1.450428
+[experiment] 05-22 20:57 INFO     Epoch: 8 Loss: 1.422189
+[experiment] 05-22 20:57 INFO     Epoch: 9 Loss: 1.391148
+[experiment] 05-22 20:57 INFO     Epoch: 10 Loss: 1.380250
+[experiment] 05-22 20:57 INFO     Epoch: 11 Loss: 1.355715
+[experiment] 05-22 20:57 INFO     Epoch: 12 Loss: 1.341491
+[experiment] 05-22 20:57 INFO     Epoch: 13 Loss: 1.339487
+[experiment] 05-22 20:57 INFO     Epoch: 14 Loss: 1.319451
+[experiment] 05-22 20:57 INFO     Epoch: 15 Loss: 1.307775
+[experiment] 05-22 20:57 INFO     Epoch: 16 Loss: 1.295574
+[experiment] 05-22 20:57 INFO     Epoch: 17 Loss: 1.288632
+[experiment] 05-22 20:57 INFO     Epoch: 18 Loss: 1.275394
+[experiment] 05-22 20:57 INFO     Epoch: 19 Loss: 1.281275
+[experiment] 05-22 20:57 INFO     >> Training accuracy: 0.437500
+[experiment] 05-22 20:57 INFO     >> Test accuracy: 0.125975
+[experiment] 05-22 20:57 INFO      ** Training complete **
+[experiment] 05-22 20:57 INFO     net 11 final test acc 0.125975
+[experiment] 05-22 20:57 INFO     Training network 13. n_training: 117
+[experiment] 05-22 20:57 INFO     Training network 13
+[experiment] 05-22 20:57 INFO     >> Pre-Training Training accuracy: 0.0
+[experiment] 05-22 20:57 INFO     >> Pre-Training Test accuracy: 0.10033444816053512
+[experiment] 05-22 20:57 INFO     Epoch: 0 Loss: 2.174488
+[experiment] 05-22 20:57 INFO     Epoch: 1 Loss: 1.675611
+[experiment] 05-22 20:57 INFO     Epoch: 2 Loss: 1.571226
+[experiment] 05-22 20:57 INFO     Epoch: 3 Loss: 1.500131
+[experiment] 05-22 20:57 INFO     Epoch: 4 Loss: 1.472158
+[experiment] 05-22 20:57 INFO     Epoch: 5 Loss: 1.431588
+[experiment] 05-22 20:57 INFO     Epoch: 6 Loss: 1.412316
+[experiment] 05-22 20:57 INFO     Epoch: 7 Loss: 1.408168
+[experiment] 05-22 20:57 INFO     Epoch: 8 Loss: 1.393152
+[experiment] 05-22 20:57 INFO     Epoch: 9 Loss: 1.377726
+[experiment] 05-22 20:57 INFO     Epoch: 10 Loss: 1.366923
+[experiment] 05-22 20:57 INFO     Epoch: 11 Loss: 1.355797
+[experiment] 05-22 20:57 INFO     Epoch: 12 Loss: 1.343536
+[experiment] 05-22 20:57 INFO     Epoch: 13 Loss: 1.350050
+[experiment] 05-22 20:57 INFO     Epoch: 14 Loss: 1.328708
+[experiment] 05-22 20:57 INFO     Epoch: 15 Loss: 1.318828
+[experiment] 05-22 20:57 INFO     Epoch: 16 Loss: 1.331578
+[experiment] 05-22 20:57 INFO     Epoch: 17 Loss: 1.321850
+[experiment] 05-22 20:57 INFO     Epoch: 18 Loss: 1.304471
+[experiment] 05-22 20:57 INFO     Epoch: 19 Loss: 1.291230
+[experiment] 05-22 20:57 INFO     >> Training accuracy: 0.495726
+[experiment] 05-22 20:57 INFO     >> Test accuracy: 0.075808
+[experiment] 05-22 20:57 INFO      ** Training complete **
+[experiment] 05-22 20:57 INFO     net 13 final test acc 0.075808
+[experiment] 05-22 20:57 INFO     Training network 17. n_training: 65
+[experiment] 05-22 20:57 INFO     Training network 17
+[experiment] 05-22 20:57 INFO     >> Pre-Training Training accuracy: 0.2
+[experiment] 05-22 20:57 INFO     >> Pre-Training Test accuracy: 0.10033444816053512
+[experiment] 05-22 20:57 INFO     Epoch: 0 Loss: 1.565707
+[experiment] 05-22 20:57 INFO     Epoch: 1 Loss: 1.229623
+[experiment] 05-22 20:57 INFO     Epoch: 2 Loss: 1.095663
+[experiment] 05-22 20:57 INFO     Epoch: 3 Loss: 1.094648
+[experiment] 05-22 20:57 INFO     Epoch: 4 Loss: 0.969610
+[experiment] 05-22 20:57 INFO     Epoch: 5 Loss: 0.973769
+[experiment] 05-22 20:57 INFO     Epoch: 6 Loss: 0.950545
+[experiment] 05-22 20:57 INFO     Epoch: 7 Loss: 0.912108
+[experiment] 05-22 20:57 INFO     Epoch: 8 Loss: 0.908248
+[experiment] 05-22 20:57 INFO     Epoch: 9 Loss: 0.938871
+[experiment] 05-22 20:57 INFO     Epoch: 10 Loss: 0.930429
+[experiment] 05-22 20:57 INFO     Epoch: 11 Loss: 0.903106
+[experiment] 05-22 20:57 INFO     Epoch: 12 Loss: 0.887029
+[experiment] 05-22 20:57 INFO     Epoch: 13 Loss: 0.910209
+[experiment] 05-22 20:57 INFO     Epoch: 14 Loss: 0.872708
+[experiment] 05-22 20:57 INFO     Epoch: 15 Loss: 0.874024
+[experiment] 05-22 20:57 INFO     Epoch: 16 Loss: 0.866299
+[experiment] 05-22 20:57 INFO     Epoch: 17 Loss: 0.815112
+[experiment] 05-22 20:57 INFO     Epoch: 18 Loss: 0.833139
+[experiment] 05-22 20:57 INFO     Epoch: 19 Loss: 0.842725
+[experiment] 05-22 20:57 INFO     >> Training accuracy: 0.676923
+[experiment] 05-22 20:57 INFO     >> Test accuracy: 0.084727
+[experiment] 05-22 20:57 INFO      ** Training complete **
+[experiment] 05-22 20:57 INFO     net 17 final test acc 0.084727
+[experiment] 05-22 20:57 INFO     Training network 24. n_training: 66
+[experiment] 05-22 20:57 INFO     Training network 24
+[experiment] 05-22 20:57 INFO     >> Pre-Training Training accuracy: 0.0
+[experiment] 05-22 20:57 INFO     >> Pre-Training Test accuracy: 0.10033444816053512
+[experiment] 05-22 20:57 INFO     Epoch: 0 Loss: 1.047017
+[experiment] 05-22 20:57 INFO     Epoch: 1 Loss: 0.343110
+[experiment] 05-22 20:57 INFO     Epoch: 2 Loss: 0.319146
+[experiment] 05-22 20:57 INFO     Epoch: 3 Loss: 0.263812
+[experiment] 05-22 20:57 INFO     Epoch: 4 Loss: 0.252121
+[experiment] 05-22 20:57 INFO     Epoch: 5 Loss: 0.241093
+[experiment] 05-22 20:57 INFO     Epoch: 6 Loss: 0.273345
+[experiment] 05-22 20:57 INFO     Epoch: 7 Loss: 0.231725
+[experiment] 05-22 20:57 INFO     Epoch: 8 Loss: 0.225653
+[experiment] 05-22 20:57 INFO     Epoch: 9 Loss: 0.223610
+[experiment] 05-22 20:57 INFO     Epoch: 10 Loss: 0.219857
+[experiment] 05-22 20:57 INFO     Epoch: 11 Loss: 0.252462
+[experiment] 05-22 20:57 INFO     Epoch: 12 Loss: 0.213127
+[experiment] 05-22 20:57 INFO     Epoch: 13 Loss: 0.245053
+[experiment] 05-22 20:57 INFO     Epoch: 14 Loss: 0.206744
+[experiment] 05-22 20:57 INFO     Epoch: 15 Loss: 0.277464
+[experiment] 05-22 20:57 INFO     Epoch: 16 Loss: 0.202868
+[experiment] 05-22 20:57 INFO     Epoch: 17 Loss: 0.202632
+[experiment] 05-22 20:57 INFO     Epoch: 18 Loss: 0.200305
+[experiment] 05-22 20:57 INFO     Epoch: 19 Loss: 0.196770
+[experiment] 05-22 20:57 INFO     >> Training accuracy: 0.954545
+[experiment] 05-22 20:57 INFO     >> Test accuracy: 0.117057
+[experiment] 05-22 20:57 INFO      ** Training complete **
+[experiment] 05-22 20:57 INFO     net 24 final test acc 0.117057
+[experiment] 05-22 20:57 INFO     Training network 26. n_training: 49
+[experiment] 05-22 20:57 INFO     Training network 26
+[experiment] 05-22 20:57 INFO     >> Pre-Training Training accuracy: 0.0
+[experiment] 05-22 20:57 INFO     >> Pre-Training Test accuracy: 0.10033444816053512
+[experiment] 05-22 20:57 INFO     Epoch: 0 Loss: 1.598186
+[experiment] 05-22 20:57 INFO     Epoch: 1 Loss: 0.730213
+[experiment] 05-22 20:57 INFO     Epoch: 2 Loss: 0.547635
+[experiment] 05-22 20:57 INFO     Epoch: 3 Loss: 0.477110
+[experiment] 05-22 20:57 INFO     Epoch: 4 Loss: 0.449872
+[experiment] 05-22 20:57 INFO     Epoch: 5 Loss: 0.427505
+[experiment] 05-22 20:57 INFO     Epoch: 6 Loss: 0.403915
+[experiment] 05-22 20:57 INFO     Epoch: 7 Loss: 0.405181
+[experiment] 05-22 20:57 INFO     Epoch: 8 Loss: 0.381422
+[experiment] 05-22 20:57 INFO     Epoch: 9 Loss: 0.391781
+[experiment] 05-22 20:57 INFO     Epoch: 10 Loss: 0.358575
+[experiment] 05-22 20:57 INFO     Epoch: 11 Loss: 0.351352
+[experiment] 05-22 20:57 INFO     Epoch: 12 Loss: 0.341059
+[experiment] 05-22 20:57 INFO     Epoch: 13 Loss: 0.332013
+[experiment] 05-22 20:57 INFO     Epoch: 14 Loss: 0.329219
+[experiment] 05-22 20:57 INFO     Epoch: 15 Loss: 0.316540
+[experiment] 05-22 20:57 INFO     Epoch: 16 Loss: 0.317374
+[experiment] 05-22 20:57 INFO     Epoch: 17 Loss: 0.312197
+[experiment] 05-22 20:57 INFO     Epoch: 18 Loss: 0.302119
+[experiment] 05-22 20:57 INFO     Epoch: 19 Loss: 0.308583
+[experiment] 05-22 20:57 INFO     >> Training accuracy: 0.918367
+[experiment] 05-22 20:57 INFO     >> Test accuracy: 0.091416
+[experiment] 05-22 20:57 INFO      ** Training complete **
+[experiment] 05-22 20:57 INFO     net 26 final test acc 0.091416
+[experiment] 05-22 20:57 INFO     Training network 27. n_training: 643
+[experiment] 05-22 20:57 INFO     Training network 27
+[experiment] 05-22 20:57 INFO     >> Pre-Training Training accuracy: 0.01088646967340591
+[experiment] 05-22 20:57 INFO     >> Pre-Training Test accuracy: 0.10033444816053512
+[experiment] 05-22 20:57 INFO     Epoch: 0 Loss: 1.089334
+[experiment] 05-22 20:57 INFO     Epoch: 1 Loss: 0.850827
+[experiment] 05-22 20:57 INFO     Epoch: 2 Loss: 0.815192
+[experiment] 05-22 20:57 INFO     Epoch: 3 Loss: 0.792996
+[experiment] 05-22 20:57 INFO     Epoch: 4 Loss: 0.775476
+[experiment] 05-22 20:57 INFO     Epoch: 5 Loss: 0.762350
+[experiment] 05-22 20:57 INFO     Epoch: 6 Loss: 0.750793
+[experiment] 05-22 20:57 INFO     Epoch: 7 Loss: 0.753449
+[experiment] 05-22 20:57 INFO     Epoch: 8 Loss: 0.730146
+[experiment] 05-22 20:57 INFO     Epoch: 9 Loss: 0.713588
+[experiment] 05-22 20:57 INFO     Epoch: 10 Loss: 0.716677
+[experiment] 05-22 20:57 INFO     Epoch: 11 Loss: 0.704383
+[experiment] 05-22 20:57 INFO     Epoch: 12 Loss: 0.695513
+[experiment] 05-22 20:57 INFO     Epoch: 13 Loss: 0.691569
+[experiment] 05-22 20:57 INFO     Epoch: 14 Loss: 0.686931
+[experiment] 05-22 20:57 INFO     Epoch: 15 Loss: 0.682354
+[experiment] 05-22 20:57 INFO     Epoch: 16 Loss: 0.679555
+[experiment] 05-22 20:57 INFO     Epoch: 17 Loss: 0.674755
+[experiment] 05-22 20:57 INFO     Epoch: 18 Loss: 0.668467
+[experiment] 05-22 20:57 INFO     Epoch: 19 Loss: 0.673368
+[experiment] 05-22 20:57 INFO     >> Training accuracy: 0.772939
+[experiment] 05-22 20:57 INFO     >> Test accuracy: 0.139353
+[experiment] 05-22 20:57 INFO      ** Training complete **
+[experiment] 05-22 20:57 INFO     net 27 final test acc 0.139353
+[experiment] 05-22 20:57 INFO     Training network 28. n_training: 61
+[experiment] 05-22 20:57 INFO     Training network 28
+[experiment] 05-22 20:57 INFO     >> Pre-Training Training accuracy: 0.0
+[experiment] 05-22 20:57 INFO     >> Pre-Training Test accuracy: 0.10033444816053512
+[experiment] 05-22 20:57 INFO     Epoch: 0 Loss: 1.009530
+[experiment] 05-22 20:57 INFO     Epoch: 1 Loss: 0.246313
+[experiment] 05-22 20:57 INFO     Epoch: 2 Loss: 0.120763
+[experiment] 05-22 20:57 INFO     Epoch: 3 Loss: 0.076452
+[experiment] 05-22 20:57 INFO     Epoch: 4 Loss: 0.058286
+[experiment] 05-22 20:57 INFO     Epoch: 5 Loss: 0.047699
+[experiment] 05-22 20:57 INFO     Epoch: 6 Loss: 0.040218
+[experiment] 05-22 20:57 INFO     Epoch: 7 Loss: 0.034356
+[experiment] 05-22 20:57 INFO     Epoch: 8 Loss: 0.027930
+[experiment] 05-22 20:57 INFO     Epoch: 9 Loss: 0.026528
+[experiment] 05-22 20:57 INFO     Epoch: 10 Loss: 0.024530
+[experiment] 05-22 20:57 INFO     Epoch: 11 Loss: 0.020501
+[experiment] 05-22 20:57 INFO     Epoch: 12 Loss: 0.018790
+[experiment] 05-22 20:57 INFO     Epoch: 13 Loss: 0.018619
+[experiment] 05-22 20:57 INFO     Epoch: 14 Loss: 0.016718
+[experiment] 05-22 20:57 INFO     Epoch: 15 Loss: 0.015249
+[experiment] 05-22 20:57 INFO     Epoch: 16 Loss: 0.014001
+[experiment] 05-22 20:57 INFO     Epoch: 17 Loss: 0.013442
+[experiment] 05-22 20:57 INFO     Epoch: 18 Loss: 0.012600
+[experiment] 05-22 20:57 INFO     Epoch: 19 Loss: 0.012061
+[experiment] 05-22 20:57 INFO     >> Training accuracy: 1.000000
+[experiment] 05-22 20:57 INFO     >> Test accuracy: 0.107023
+[experiment] 05-22 20:57 INFO      ** Training complete **
+[experiment] 05-22 20:57 INFO     net 28 final test acc 0.107023
+[experiment] 05-22 20:57 INFO     global n_training: 793
+[experiment] 05-22 20:57 INFO     global n_test: 29
+[experiment] 05-22 20:57 INFO     >> Global Model Train accuracy: 0.121625
+[experiment] 05-22 20:57 INFO     >> Global Model Test accuracy: 0.130435
+[experiment] 05-22 20:57 INFO     >> Global Model Train loss: 2.413177
+[experiment] 05-22 20:57 INFO     >> Global Model Test loss: 2.413524
+[console] len train_dl_global: 7926

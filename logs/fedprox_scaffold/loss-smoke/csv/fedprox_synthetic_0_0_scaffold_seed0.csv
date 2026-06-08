@@ -1,0 +1,2 @@
+dataset,round,train_accuracy,test_accuracy,train_loss,test_loss
+fedprox_synthetic_0_0,0,0.121625,0.130435,2.413177,2.413524

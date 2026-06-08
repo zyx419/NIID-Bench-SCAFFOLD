@@ -1,0 +1,2 @@
+dataset	seed	device	comm_rounds	local_epochs	batch_size	lr	sample	console_log	experiment_log	csv
+fedprox_synthetic_0_0	0	cpu	1	20	10	0.01	0.3333333333	/home/onki/workspace/NIID-Bench/logs/fedprox_scaffold/loss-smoke/console/fedprox_synthetic_0_0_scaffold_seed0.console.log	/home/onki/workspace/NIID-Bench/logs/fedprox_scaffold/loss-smoke/experiment_logs/fedprox_synthetic_0_0_scaffold_seed0.log	/home/onki/workspace/NIID-Bench/logs/fedprox_scaffold/loss-smoke/csv/fedprox_synthetic_0_0_scaffold_seed0.csv

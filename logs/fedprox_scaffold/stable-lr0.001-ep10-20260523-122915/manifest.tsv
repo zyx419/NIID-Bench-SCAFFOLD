@@ -1,0 +1,2 @@
+dataset	seed	device	comm_rounds	local_epochs	batch_size	lr	sample	console_log	experiment_log	csv
+fedprox_mnist	0	cpu	200	10	10	0.001	0.01	/home/onki/workspace/NIID-Bench/logs/fedprox_scaffold/stable-lr0.001-ep10-20260523-122915/console/fedprox_mnist_scaffold_seed0.console.log	/home/onki/workspace/NIID-Bench/logs/fedprox_scaffold/stable-lr0.001-ep10-20260523-122915/experiment_logs/fedprox_mnist_scaffold_seed0.log	/home/onki/workspace/NIID-Bench/logs/fedprox_scaffold/stable-lr0.001-ep10-20260523-122915/csv/fedprox_mnist_scaffold_seed0.csv

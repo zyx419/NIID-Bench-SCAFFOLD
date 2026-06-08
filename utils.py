@@ -1,4 +1,6 @@
 import os
+import glob
+import json
 import logging
 import numpy as np
 import torch
@@ -36,6 +38,113 @@ def mkdirs(dirpath):
         os.makedirs(dirpath)
     except Exception as _:
         pass
+
+
+FEDPROX_DATASETS = {
+    'fedprox_synthetic_0_0',
+    'fedprox_synthetic_0.5_0.5',
+    'fedprox_synthetic_1_1',
+    'fedprox_synthetic_iid',
+    'fedprox_mnist',
+    'fedprox_femnist',
+}
+_FEDPROX_DATA_CACHE = {}
+
+
+def is_fedprox_dataset(dataset):
+    return dataset in FEDPROX_DATASETS
+
+
+def _fedprox_split_files(datadir, dataset, split):
+    split_dir = os.path.join(datadir, dataset, 'data', split)
+    json_files = sorted(glob.glob(os.path.join(split_dir, '*.json')))
+    if not json_files:
+        raise RuntimeError('No FedProx JSON files found in {}'.format(split_dir))
+    return json_files
+
+
+def _load_fedprox_split(datadir, dataset, split):
+    users = []
+    user_data = {}
+    num_samples = []
+    for json_file in _fedprox_split_files(datadir, dataset, split):
+        with open(json_file, 'r') as f:
+            payload = json.load(f)
+        for i, user in enumerate(payload['users']):
+            x = payload['user_data'][user]['x']
+            y = payload['user_data'][user]['y']
+            if len(x) != len(y):
+                raise RuntimeError('Mismatched x/y length for user {} in {}'.format(user, json_file))
+            users.append(user)
+            user_data[user] = {'x': x, 'y': y}
+            if 'num_samples' in payload:
+                num_samples.append(payload['num_samples'][i])
+            else:
+                num_samples.append(len(y))
+    return users, user_data, num_samples
+
+
+def load_fedprox_json_data(datadir, dataset):
+    cache_key = (os.path.abspath(datadir), dataset)
+    if cache_key in _FEDPROX_DATA_CACHE:
+        return _FEDPROX_DATA_CACHE[cache_key]
+
+    train_users, train_user_data, train_num_samples = _load_fedprox_split(datadir, dataset, 'train')
+    test_users, test_user_data, _ = _load_fedprox_split(datadir, dataset, 'test')
+
+    X_train, y_train, net_dataidx_map = [], [], {}
+    offset = 0
+    for party_id, user in enumerate(train_users):
+        x = train_user_data[user]['x']
+        y = train_user_data[user]['y']
+        if train_num_samples[party_id] != len(y):
+            raise RuntimeError('num_samples mismatch for user {}'.format(user))
+        X_train.extend(x)
+        y_train.extend(y)
+        net_dataidx_map[party_id] = np.arange(offset, offset + len(y), dtype=np.int64)
+        offset += len(y)
+
+    X_test, y_test = [], []
+    for user in test_users:
+        X_test.extend(test_user_data[user]['x'])
+        y_test.extend(test_user_data[user]['y'])
+
+    loaded = (
+        np.asarray(X_train, dtype=np.float32),
+        np.asarray(y_train, dtype=np.int64),
+        np.asarray(X_test, dtype=np.float32),
+        np.asarray(y_test, dtype=np.int64),
+        net_dataidx_map,
+    )
+    _FEDPROX_DATA_CACHE[cache_key] = loaded
+    return loaded
+
+
+def get_fedprox_model_shape(datadir, dataset):
+    X_train, y_train, _, _, _ = load_fedprox_json_data(datadir, dataset)
+    return X_train.shape[1], int(np.max(y_train)) + 1
+
+
+class FedProxJsonDataset(data.Dataset):
+    def __init__(self, root, dataset, dataidxs=None, train=True):
+        X_train, y_train, X_test, y_test, _ = load_fedprox_json_data(root, dataset)
+        if train:
+            self.data = X_train
+            self.targets = y_train
+        else:
+            self.data = X_test
+            self.targets = y_test
+
+        if dataidxs is not None:
+            self.data = self.data[dataidxs]
+            self.targets = self.targets[dataidxs]
+
+    def __getitem__(self, index):
+        return torch.from_numpy(self.data[index]).float(), int(self.targets[index])
+
+    def __len__(self):
+        return len(self.targets)
+
 
 def load_mnist_data(datadir):
 
@@ -179,6 +288,11 @@ def record_net_data_stats(y_train, net_dataidx_map, logdir):
 def partition_data(dataset, datadir, logdir, partition, n_parties, beta=0.4):
     #np.random.seed(2020)
     #torch.manual_seed(2020)
+
+    if is_fedprox_dataset(dataset):
+        X_train, y_train, X_test, y_test, net_dataidx_map = load_fedprox_json_data(datadir, dataset)
+        traindata_cls_counts = record_net_data_stats(y_train, net_dataidx_map, logdir)
+        return (X_train, y_train, X_test, y_test, net_dataidx_map, traindata_cls_counts)
 
     if dataset == 'mnist':
         X_train, y_train, X_test, y_test = load_mnist_data(datadir)
@@ -624,6 +738,38 @@ def compute_accuracy(model, dataloader, get_confusion_matrix=False, moon_model=F
     return correct/float(total)
 
 
+def compute_loss(model, dataloader, criterion=None, moon_model=False, device="cpu"):
+    if criterion is None:
+        criterion = nn.CrossEntropyLoss(reduction='sum').to(device)
+
+    was_training = False
+    if model.training:
+        model.eval()
+        was_training = True
+
+    if type(dataloader) == type([1]):
+        dataloaders = dataloader
+    else:
+        dataloaders = [dataloader]
+
+    total_loss, total = 0.0, 0
+    with torch.no_grad():
+        for tmp in dataloaders:
+            for batch_idx, (x, target) in enumerate(tmp):
+                x, target = x.to(device), target.to(device, dtype=torch.int64)
+                if moon_model:
+                    _, _, out = model(x)
+                else:
+                    out = model(x)
+                total_loss += criterion(out, target).item()
+                total += x.data.size()[0]
+
+    if was_training:
+        model.train()
+
+    return total_loss / float(total)
+
+
 def save_model(model, model_index, args):
     logger.info("saving local model-{}".format(model_index))
     with open(args.modeldir+"trained_local_model"+str(model_index), "wb") as f_:
@@ -665,6 +811,13 @@ class AddGaussianNoise(object):
         return self.__class__.__name__ + '(mean={0}, std={1})'.format(self.mean, self.std)
 
 def get_dataloader(dataset, datadir, train_bs, test_bs, dataidxs=None, noise_level=0, net_id=None, total=0):
+    if is_fedprox_dataset(dataset):
+        train_ds = FedProxJsonDataset(datadir, dataset, dataidxs=dataidxs, train=True)
+        test_ds = FedProxJsonDataset(datadir, dataset, train=False)
+        train_dl = data.DataLoader(dataset=train_ds, batch_size=train_bs, shuffle=True, drop_last=False)
+        test_dl = data.DataLoader(dataset=test_ds, batch_size=test_bs, shuffle=False, drop_last=False)
+        return train_dl, test_dl, train_ds, test_ds
+
     if dataset in ('mnist', 'femnist', 'fmnist', 'cifar10', 'svhn', 'generated', 'covtype', 'a9a', 'rcv1', 'SUSY', 'cifar100', 'tinyimagenet'):
         if dataset == 'mnist':
             dl_obj = MNIST_truncated
@@ -849,5 +1002,4 @@ def noise_sample(choice, n_dis_c, dis_c_dim, n_con_c, n_z, batch_size, device):
         noise = torch.cat((noise, con_c), dim=1)
 
     return noise, idx
-
 

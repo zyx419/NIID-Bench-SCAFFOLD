@@ -1,0 +1,2 @@
+dataset	seed	device	comm_rounds	local_epochs	batch_size	lr	sample	console_log	experiment_log	csv
+fedprox_synthetic_0_0	0	cpu	50	10	10	0.003	0.3333333333	/home/onki/workspace/NIID-Bench/logs/fedprox_scaffold/tune-s0-lr0.003-ep10-r50/console/fedprox_synthetic_0_0_scaffold_seed0.console.log	/home/onki/workspace/NIID-Bench/logs/fedprox_scaffold/tune-s0-lr0.003-ep10-r50/experiment_logs/fedprox_synthetic_0_0_scaffold_seed0.log	/home/onki/workspace/NIID-Bench/logs/fedprox_scaffold/tune-s0-lr0.003-ep10-r50/csv/fedprox_synthetic_0_0_scaffold_seed0.csv

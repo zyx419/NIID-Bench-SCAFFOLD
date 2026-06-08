@@ -62,7 +62,9 @@ def init_nets(net_configs, dropout_p, n_parties, args):
 
     nets = {net_i: None for net_i in range(n_parties)}
 
-    if args.dataset in {'mnist', 'cifar10', 'svhn', 'fmnist'}:
+    if is_fedprox_dataset(args.dataset):
+        fedprox_input_size, n_classes = get_fedprox_model_shape(args.datadir, args.dataset)
+    elif args.dataset in {'mnist', 'cifar10', 'svhn', 'fmnist'}:
         n_classes = 10
     elif args.dataset == 'celeba':
         n_classes = 2
@@ -96,7 +98,11 @@ def init_nets(net_configs, dropout_p, n_parties, args):
                 if args.dataset == "generated":
                     net = PerceptronModel()
                 elif args.model == "mlp":
-                    if args.dataset == 'covtype':
+                    if is_fedprox_dataset(args.dataset):
+                        input_size = fedprox_input_size
+                        output_size = n_classes
+                        hidden_sizes = []
+                    elif args.dataset == 'covtype':
                         input_size = 54
                         output_size = 2
                         hidden_sizes = [32,16,8]
@@ -830,6 +836,8 @@ if __name__ == '__main__':
     logger.info("Partitioning data")
     X_train, y_train, X_test, y_test, net_dataidx_map, traindata_cls_counts = partition_data(
         args.dataset, args.datadir, args.logdir, args.partition, args.n_parties, beta=args.beta)
+    if is_fedprox_dataset(args.dataset):
+        args.n_parties = len(net_dataidx_map)
 
     n_classes = len(np.unique(y_train))
 
@@ -1042,9 +1050,13 @@ if __name__ == '__main__':
             global_model.to(device)
             train_acc = compute_accuracy(global_model, train_dl_global, device=device)
             test_acc, conf_matrix = compute_accuracy(global_model, test_dl_global, get_confusion_matrix=True, device=device)
+            train_loss = compute_loss(global_model, train_dl_global, device=device)
+            test_loss = compute_loss(global_model, test_dl_global, device=device)
 
             logger.info('>> Global Model Train accuracy: %f' % train_acc)
             logger.info('>> Global Model Test accuracy: %f' % test_acc)
+            logger.info('>> Global Model Train loss: %f' % train_loss)
+            logger.info('>> Global Model Test loss: %f' % test_loss)
 
     elif args.alg == 'fednova':
         logger.info("Initializing nets")
